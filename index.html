@@ -69,7 +69,7 @@
       <h1 id="heading">Phoenix</h1>
       <div id="browsing">
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Enter URL or query..." aria-describedby="basic-addon1">
+            <input id="search" type="text" class="form-control" placeholder="Enter URL or query..." aria-describedby="basic-addon1">
         </div>          
       </div>
       <footer>
@@ -77,4 +77,18 @@
       </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
+  <script>
+    function search(){
+        var q = document.getElementById('search').value;
+        if (q.includes(':') || q.includes('.')){
+            window.location.href = q;
+        } else{
+            window.location.href='https://www.google.com/search?igu=1&q='+q;
+        }
+    }document.getElementById('search').addEventListener('keydown', (event)=>{
+        if (event.key === 'Enter'){
+            search();
+        }
+    });
+  </script>
 </html>
